@@ -1,0 +1,55 @@
+.app-menu__container {
+  display: flex;
+  font-family: $sans1med;
+  flex-direction: column;
+}
+.app-menu {
+  width: 100%;
+  display: flex;
+  min-width: max-content;
+  flex-direction: column;
+  padding: 7px !important;
+  max-width: 100% !important;
+  margin-top: 4px !important;
+  border-radius: 8px !important;
+  background-color: $main !important;
+  box-shadow: 0px 0px 0px 1px rgba(21, 21, 31, 0.06),
+    0px 8px 28px rgba(22, 22, 26, 0.08) !important;
+
+  &.wallet {
+    padding: 2px !important;
+    margin-top: 6px !important;
+    .menu-item {
+      padding: 10px;
+      font-size: 13px;
+    }
+  }
+
+  .menu-item {
+    gap: 12px;
+    padding: 14px;
+    display: flex;
+    font-size: 14px;
+    border-radius: 6px;
+    text-align: center;
+    @extend %row-middle;
+    text-transform: capitalize;
+    color: rgba($color: $sub, $alpha: 0.4);
+    &:hover {
+      color: rgba($color: $sub, $alpha: 0.6);
+      background-color: rgba($color: $sub, $alpha: 0.06);
+    }
+    &[data-active="true"] {
+      color: $sub;
+    }
+    svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--body-text);
+      &.play {
+        fill: none;
+        stroke: var(--body-text);
+      }
+    }
+  }
+}

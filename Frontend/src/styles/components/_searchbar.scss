@@ -1,0 +1,20 @@
+@use "sass:math";
+
+.search-bar {
+  @extend %base-input;
+
+  &__icon {
+    aspect-ratio: 1;
+    border-radius: 6px;
+    @extend %row-middle;
+    height: calc(100% - 4px);
+    background: rgba($color: $sub, $alpha: 0.07);
+    svg {
+      fill: $sub;
+      width: 17px;
+      height: 17px;
+      stroke: $sub;
+      stroke-width: 0.3px;
+    }
+  }
+}

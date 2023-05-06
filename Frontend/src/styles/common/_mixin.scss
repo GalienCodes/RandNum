@@ -1,0 +1,61 @@
+@mixin xlscreen {
+  @media (max-width: 1396px) {
+    @content;
+  }
+}
+@mixin lgscreen {
+  @media (max-width: 1150px) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+@mixin ipad {
+  @media (max-width: 930px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: 868px) {
+    @content;
+  }
+}
+@mixin phone {
+  @media (max-width: 570px) {
+    @content;
+  }
+}
+@mixin slScreen {
+  @media (max-width: 428px) {
+    @content;
+  }
+}
+
+@mixin scrollbars(
+  $size,
+  $foreground-color,
+  $background-color: mix($foreground-color, white, 50%)
+) {
+  // For Google Chrome
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+
+  // For Internet Explorer
+  & {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}

@@ -1,0 +1,131 @@
+.bet-details {
+  width: 100%;
+  // padding-bottom: 10vh;
+  padding-bottom: 4.5vh;
+  font-family: $sans1med;
+  flex-direction: column;
+
+  &__list {
+    width: 100%;
+    display: flex;
+    margin-bottom: 40px;
+    flex-direction: column;
+    &.no-margin {
+      margin-bottom: 0px;
+    }
+    &-item {
+      display: flex;
+      padding: 16px 0px;
+      @extend %row-center-spaced;
+      border-bottom: 1px solid rgba($color: $sub, $alpha: 0.1);
+      .key {
+        text-transform: capitalize;
+        color: rgba($color: $sub, $alpha: 0.6);
+      }
+      .amount-won,
+      .amount-value {
+        gap: 6px;
+        svg {
+          fill: $sub;
+          width: 16px;
+          height: 16px;
+          stroke: $sub;
+          stroke-width: 0.3px;
+        }
+        @extend %row-center;
+        @extend %indicator;
+      }
+      .amount {
+        gap: 6px;
+        svg {
+          fill: $sub;
+          width: 16px;
+          height: 16px;
+          stroke: $sub;
+          stroke-width: 0.3px;
+        }
+        @extend %row-center;
+      }
+    }
+  }
+
+  .section-header {
+    margin-bottom: 20px;
+    h2 {
+      font-size: 24px;
+      margin-top: 10px;
+      color: rgba($color: $sub, $alpha: 0.5);
+      color: $sub;
+      @include phone {
+        font-size: 22px;
+      }
+    }
+  }
+
+  .bet-activities {
+    width: 100%;
+    flex-direction: column;
+    &-group {
+      width: 100%;
+      flex-direction: column;
+      &__header {
+        width: 100%;
+        padding: 16px 0px;
+        flex-direction: row;
+        color: #23232379;
+      }
+      &__list {
+        width: 100%;
+        flex-direction: column;
+        &-item {
+          display: flex;
+          padding: 16px 0px;
+          @extend %row-spaced;
+          align-items: flex-end;
+          border-top: 1px solid rgba($color: $sub, $alpha: 0.1);
+          .block {
+            gap: 10px;
+            &-icon {
+              width: 21px;
+              height: 21px;
+              padding: 2px;
+              @extend %row-middle;
+              border-radius: 100%;
+              background: rgba($color: $sub, $alpha: 0.058);
+              svg {
+                width: 70%;
+                height: 70%;
+                stroke: $sub !important;
+                stroke-width: 2 !important;
+                &.stroke {
+                  stroke-width: 1.6 !important;
+                }
+              }
+            }
+            &-content {
+              gap: 8px;
+              flex-direction: column;
+              &.values {
+                gap: 6px;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-end;
+                svg {
+                  width: 8px;
+                  height: 8px;
+                  margin-top: -2px;
+                  stroke-width: 3 !important;
+                  stroke: rgba($color: $sub, $alpha: 0.5) !important;
+                }
+              }
+            }
+          }
+          .key {
+            text-transform: capitalize;
+            color: rgba($color: $sub, $alpha: 0.5);
+          }
+        }
+      }
+    }
+  }
+}

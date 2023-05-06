@@ -1,0 +1,37 @@
+version: "3"
+services:
+  server-api:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/home/node/src
+      - /home/node/src/node_modules/
+    links:
+      - db
+      - redis
+    environment:
+      MONGO_CONNECTION_STRING: mongodb://db:27017/RandNum
+      PORT: 8000
+      API_KEY: "YOUR KEY"
+      ADMIN_MNEMONIC: Mnemonic
+      APP_ID: 157951119
+      REDIS_HOST: 0
+      REDIS_PASSWORD: 0
+      REDIS_PORT: 0
+      MODE: DEVELOPMENT
+      REDIS_USERNAME: 0
+
+  db:
+    container_name: db
+    image: mongo
+    volumes:
+      - ./mongo/data:/data/db
+  redis:
+    image: redis:latest
+    container_name: redis
+    volumes:
+      - ./redis_data:/data
+    restart: always
+    expose:
+      - "6379"

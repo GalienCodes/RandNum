@@ -1,0 +1,383 @@
+@import "../../styles/common/variables";
+@import "../../styles/common/mixin";
+@import "../../styles/common/partials";
+
+.home-page {
+  gap: 36px;
+  width: 100vw;
+  height: 100vh;
+  padding: 24px;
+  display: flex;
+  overflow: hidden;
+  padding-bottom: 0px;
+  flex-direction: row;
+  overscroll-behavior: none;
+
+  @include lgscreen {
+    gap: 20px;
+    padding: 24px 7vw 15vh;
+    flex-direction: column;
+    height: max-content;
+    overflow-y: scroll !important;
+  }
+  @include tablet {
+    padding: 24px 30px 40px;
+  }
+  @include phone {
+    padding: 24px 24px 40px;
+  }
+
+  div,
+  button {
+    display: flex;
+  }
+
+  // HERO TEXT
+  &__description {
+    flex: 1;
+    display: flex;
+    padding-left: 52px;
+    flex-direction: column;
+    &__header {
+      @extend %top-bar;
+      width: 100%;
+    }
+
+    &__content {
+      flex: 1;
+      display: flex;
+      max-width: 526px;
+      padding-top: 20px;
+      font-family: $sans1;
+      flex-direction: column;
+      justify-content: center;
+      &__title {
+        color: $sub;
+        font-size: 40px;
+        line-height: 1.15;
+        margin-bottom: 16px;
+        font-family: $sans1med;
+      }
+      &__subtitle {
+        color: $sub;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 1.2;
+        max-width: 526px;
+        margin-bottom: 32px;
+      }
+      &__buttons {
+        gap: 16px;
+        align-items: center;
+        flex-direction: row;
+        margin-bottom: 16px;
+        button,
+        a {
+          display: flex;
+          @extend %row-middle;
+          flex: 1;
+          gap: 6px;
+          height: 50px;
+          color: $main;
+          font-size: 16px;
+          cursor: pointer;
+          background: $sub;
+          padding: 0px 22px;
+          border-radius: 8px;
+          width: max-content;
+          svg {
+            display: none;
+            width: 16px;
+            &.stroke {
+              stroke: $main;
+            }
+            & path.fill {
+              fill: $main;
+            }
+            & path.stroke {
+              stroke: $main;
+            }
+          }
+        }
+      }
+    }
+
+    &__footer {
+      width: 100%;
+      height: 90px;
+      max-width: 526px;
+      margin-bottom: -4px;
+      .footer__line-animation {
+        width: 100%;
+        height: 100%;
+        @extend %column-spaced;
+
+        &__row {
+          @extend %row-spaced;
+          &__item {
+            width: 1.3px;
+            height: 14px;
+            opacity: 0.9;
+            background: $sub;
+            transform-origin: center;
+          }
+        }
+      }
+    }
+
+    @include lgscreen {
+      padding-left: 0px;
+      align-items: center;
+      &__content {
+        min-height: 60vh;
+        max-width: 100%;
+        padding-top: 13vh;
+        &__buttons {
+          button {
+            max-width: 226px;
+          }
+        }
+      }
+      &__footer {
+        display: none !important;
+      }
+    }
+
+    @include tablet {
+      padding-left: 0px;
+      align-items: center;
+      &__content {
+        max-width: 100%;
+        padding-top: 5vh;
+        min-height: 60vh;
+        &__title {
+          font-size: 30px;
+          line-height: 1.15;
+          margin-bottom: 16px;
+        }
+        &__subtitle {
+          font-size: 16px;
+          line-height: 1.4;
+          margin-bottom: 52px;
+        }
+        &__buttons {
+          button {
+            font-size: 14px;
+            max-width: 180px;
+          }
+        }
+      }
+    }
+  }
+
+  // RECENT BETS
+  &__recent-bets {
+    width: 440px;
+    overflow-y: scroll;
+    flex-direction: column;
+    overscroll-behavior: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &__header {
+      top: 0px;
+      flex: none;
+      z-index: 2;
+      position: sticky;
+      margin-bottom: 8px;
+      background: $main;
+      padding-bottom: 16px;
+      font-family: $sansmed;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      &-content {
+        @extend %row-center-spaced;
+        width: 100%;
+        color: #000;
+        font-size: 30px;
+        padding: 20px 22px;
+        padding-left: 24px;
+        border-radius: 18px;
+        font-family: $sansmed;
+        background: rgba(0, 0, 0, 0.1);
+        svg {
+          height: 26px;
+          path {
+            fill: $sub !important;
+          }
+        }
+      }
+    }
+
+    &__cards {
+      flex: 1;
+      width: 100%;
+      overflow: hidden;
+      min-height: 260px;
+      position: relative;
+      flex-direction: column;
+      overscroll-behavior: none;
+    }
+
+    &__card {
+      flex: none;
+      width: 100%;
+      height: 254px;
+      padding: 22px;
+      color: $main;
+      display: flex;
+      background: $sub;
+      margin-bottom: 24px;
+      border-radius: 18px;
+      flex-direction: column;
+      cursor: pointer;
+
+      &.animated {
+        top: 0px;
+        left: 0px;
+        position: absolute;
+      }
+
+      .header {
+        flex: 1;
+        gap: 14px;
+        flex-direction: column;
+        &__row {
+          @extend %row-center-spaced;
+          &__betId,
+          &__luckyNo {
+            gap: 8px;
+            font-size: 26px;
+            padding-left: 2px;
+            font-family: $sansmed;
+            text-transform: uppercase;
+            @extend %row-center;
+          }
+          &__luckyNo {
+            font-size: 19px;
+            padding-left: 0px;
+            font-family: $sans;
+            text-transform: none;
+            svg {
+              width: 20px;
+              height: 20px;
+              stroke: $main;
+              margin-top: 1px;
+            }
+          }
+        }
+      }
+      .details {
+        font-size: 18px;
+        padding-top: 16px;
+        flex-direction: column;
+        border-top: 0.8px solid $main;
+        &__row {
+          padding: 8px 0px;
+          @extend %row-center-spaced;
+
+          a {
+            font-size: 18px;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  @include lgscreen {
+    &__recent-bets {
+      width: 100%;
+      margin-top: 24px;
+      overscroll-behavior: none;
+      &__header {
+        top: 0px;
+        left: 0px;
+        position: sticky;
+        margin-bottom: 16px;
+        border-radius: 0px;
+        @include tablet {
+          margin-bottom: 24px;
+        }
+        &-content {
+          padding: 18px 20px;
+          border-radius: 14px;
+          background: rgba(0, 0, 0, 0.08);
+          @include tablet {
+            font-size: 24px;
+            padding: 16px 20px;
+          }
+          @include phone {
+            font-size: 20px;
+          }
+        }
+      }
+      &__cards {
+        gap: 30px;
+        flex-direction: row;
+        overscroll-behavior: none;
+        @include tablet {
+          gap: 24px;
+        }
+        @include phone {
+          gap: 18px;
+          margin-bottom: 40px;
+        }
+      }
+
+      &__card {
+        flex: none;
+        width: 400px;
+        height: 250px;
+        padding: 20px;
+        max-width: 76vw;
+        margin-bottom: 0px !important;
+        @include tablet {
+          .header {
+            gap: 8px;
+            .header__row__betId {
+              font-size: 24px;
+            }
+            .header__row__luckyNo {
+              gap: 8px;
+              padding-left: 0px;
+              font-size: 16px !important;
+              svg {
+                width: 18px;
+                height: 18px;
+                margin-top: 2px;
+              }
+            }
+            @include phone {
+              .header__row__betId {
+                font-size: 20px;
+              }
+              .header__row__luckyNo {
+                font-size: 14px;
+              }
+            }
+          }
+          .details {
+            font-size: 16px;
+            padding-top: 14px;
+            flex-direction: column;
+            border-top: 0.8px solid $main;
+            &__row {
+              padding: 6px 0px;
+            }
+
+            @include phone {
+              font-size: 14px;
+            }
+          }
+        }
+        @include phone {
+          // width: 360px;
+          height: 240px;
+        }
+      }
+    }
+  }
+}

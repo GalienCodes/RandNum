@@ -1,0 +1,155 @@
+{
+    "name": "Lotto",
+    "methods": [
+        {
+            "name": "initiliaze_game_params",
+            "args": [
+                {
+                    "type": "uint64",
+                    "name": "ticketing_start"
+                },
+                {
+                    "type": "uint64",
+                    "name": "ticketing_duration"
+                },
+                {
+                    "type": "uint64",
+                    "name": "ticket_fee"
+                },
+                {
+                    "type": "uint64",
+                    "name": "withdrawal_start"
+                },
+                {
+                    "type": "uint64",
+                    "name": "win_multiplier"
+                },
+                {
+                    "type": "uint64",
+                    "name": "max_guess_number"
+                },
+                {
+                    "type": "uint64",
+                    "name": "max_players_allowed"
+                },
+                {
+                    "type": "account",
+                    "name": "lottery_account"
+                },
+                {
+                    "type": "pay",
+                    "name": "create_txn"
+                }
+            ],
+            "returns": {
+                "type": "void"
+            }
+        },
+        {
+            "name": "get_game_params",
+            "args": [],
+            "returns": {
+                "type": "(uint64,uint64,uint64,uint64,uint64,uint64,uint64,uint64,uint64,address,uint64,uint64)"
+            }
+        },
+        {
+            "name": "enter_game",
+            "args": [
+                {
+                    "type": "uint64",
+                    "name": "guess_number"
+                },
+                {
+                    "type": "pay",
+                    "name": "ticket_txn"
+                }
+            ],
+            "returns": {
+                "type": "void"
+            }
+        },
+        {
+            "name": "change_guess_number",
+            "args": [
+                {
+                    "type": "uint64",
+                    "name": "new_guess_number"
+                }
+            ],
+            "returns": {
+                "type": "void"
+            }
+        },
+        {
+            "name": "get_user_guess_number",
+            "args": [
+                {
+                    "type": "account",
+                    "name": "player"
+                }
+            ],
+            "returns": {
+                "type": "uint64"
+            }
+        },
+        {
+            "name": "generate_lucky_number",
+            "args": [
+                {
+                    "type": "application",
+                    "name": "application_Id"
+                }
+            ],
+            "returns": {
+                "type": "void"
+            }
+        },
+        {
+            "name": "get_lucky_number",
+            "args": [],
+            "returns": {
+                "type": "uint64"
+            }
+        },
+        {
+            "name": "check_user_win_lottery",
+            "args": [
+                {
+                    "type": "account",
+                    "name": "player"
+                }
+            ],
+            "returns": {
+                "type": "bool"
+            }
+        },
+        {
+            "name": "reset_game_params",
+            "args": [
+                {
+                    "type": "account",
+                    "name": "lottery_account"
+                },
+                {
+                    "type": "account",
+                    "name": "game_master_account"
+                },
+                {
+                    "type": "account",
+                    "name": "protocol_account"
+                }
+            ],
+            "returns": {
+                "type": "void"
+            }
+        },
+        {
+            "name": "get_total_game_played",
+            "args": [],
+            "returns": {
+                "type": "uint64"
+            }
+        }
+    ],
+    "networks": {}
+}

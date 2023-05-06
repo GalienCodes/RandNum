@@ -1,0 +1,192 @@
+@import "../../styles/common/variables";
+@import "../../styles/common/mixin";
+@import "../../styles/common/partials";
+
+.profile-page {
+  width: 100vw;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  padding: 24px 76px 40px;
+  overscroll-behavior: none;
+
+  @include tablet {
+    padding: 24px 30px 40px;
+  }
+  @include phone {
+    padding: 24px 24px 40px;
+  }
+
+  div,
+  button {
+    display: flex;
+  }
+
+  &__stats {
+    @extend %row-center-spaced;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding-top: 26px;
+    padding-bottom: 26px;
+    font-family: $sansmed;
+
+    @include phone {
+      gap: 30px;
+      padding-top: 10px;
+      padding-bottom: 20px;
+    }
+  }
+
+  %stat-content {
+    text-align: center;
+
+    &:not(:first-child) {
+      .row {
+        justify-content: center;
+      }
+    }
+    .row {
+      gap: 6px;
+      align-items: center;
+      flex-direction: row;
+
+      @include phone {
+        gap: 6px;
+      }
+      &.pnl {
+        margin-top: 10px;
+        padding: 6px 12px;
+        border-radius: 18px;
+        color: #ac321d;
+        align-items: center;
+        background: #f4d6d7;
+        &[data-profit="true"] {
+          color: #1b5e21;
+          background: #d3ead5;
+        }
+        &.inactive {
+          color: #666;
+          background: #e1e1e1;
+        }
+
+        h2 {
+          font-size: 25px;
+          margin-top: 0px;
+          @include tablet {
+            font-size: 22px;
+          }
+          @include phone {
+            font-size: 16px;
+          }
+        }
+
+        svg {
+          fill: $sub;
+          height: 20px !important;
+          margin-top: 0px;
+          @include tablet {
+            height: 18px !important;
+          }
+          @include phone {
+            margin-top: 0px;
+            height: 14px !important;
+          }
+        }
+      }
+    }
+
+    &:not(.no-fill) {
+      svg {
+        fill: $sub;
+        height: 27px !important;
+        margin-top: 10px;
+        @include tablet {
+          height: 24px !important;
+        }
+        @include phone {
+          margin-top: 9px;
+          height: 18px !important;
+        }
+      }
+    }
+    svg {
+      margin-top: 10px;
+      @include tablet {
+        height: 24px !important;
+      }
+      @include phone {
+        margin-top: 9px;
+      }
+    }
+
+    p {
+      font-size: 16px;
+      &.address {
+        font-size: 15px;
+      }
+      color: rgba($color: $sub, $alpha: 0.5);
+      @include phone {
+        font-size: 14px !important;
+        &.address {
+          font-size: 13px !important;
+        }
+      }
+    }
+    h2 {
+      font-size: 36px;
+      margin-top: 10px;
+      @include tablet {
+        font-size: 30px;
+      }
+      @include phone {
+        font-size: 27px;
+      }
+    }
+  }
+
+  &__info {
+    gap: 12px;
+    padding-right: 20px;
+    white-space: nowrap;
+    flex-direction: row;
+    &__image-cover {
+      width: 70px;
+      height: 70px;
+      // padding: 7px;
+      overflow: hidden;
+      border-radius: 12px;
+      background: rgba($color: #000000, $alpha: 0.02);
+      border: 1px solid rgba($color: $sub, $alpha: 0.08);
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      @include phone {
+        width: 60px;
+        height: 60px;
+        // padding: 6px;
+      }
+    }
+    &__details {
+      flex-direction: column;
+      justify-content: center;
+
+      @extend %stat-content;
+    }
+  }
+
+  &__stat {
+    white-space: nowrap;
+    flex-direction: column;
+    @extend %stat-content;
+    &.fav,
+    &.played {
+      h2 {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}

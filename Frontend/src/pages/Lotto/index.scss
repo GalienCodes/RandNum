@@ -1,0 +1,173 @@
+@import "../../styles/common/variables";
+@import "../../styles/common/mixin";
+@import "../../styles/common/partials";
+
+.lotto-page-main {
+  gap: 24px;
+  width: 100vw;
+  display: flex;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  padding: 24px 76px 40px;
+  overscroll-behavior: none;
+  @include tablet {
+    padding: 24px 30px 40px;
+  }
+  @include phone {
+    padding: 24px 24px 40px;
+  }
+
+  div,
+  button {
+    display: flex;
+  }
+
+  .spinner-container {
+    width: 540px;
+    max-width: 45%;
+    @extend %row-middle;
+    @include ipad {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  .error-message,
+  .waiting-message {
+    display: flex;
+    font-size: 12px;
+    padding-left: 6px;
+    // margin-bottom: 8px;
+    color: #d85841;
+    text-align: center;
+    flex-direction: row;
+    align-items: center;
+    font-family: $sans1med;
+    margin-top: -10px;
+    margin-bottom: -6px;
+    p {
+      line-height: 1.4;
+      text-align: center;
+    }
+  }
+  .waiting-message {
+    font-size: 14px;
+    color: #232323;
+    margin-top: -4px;
+    padding-left: 0px;
+    margin-bottom: -4px;
+    p {
+      text-align: center;
+    }
+  }
+
+  .connect-wallet-message {
+    font-size: 17px;
+    line-height: 1.4;
+    font-family: $sans1med;
+    @include phone {
+      font-size: 15px;
+    }
+  }
+
+  .lotto-page {
+    flex: 1;
+    gap: 30px;
+    width: 100%;
+    font-family: $sans1;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &-title {
+      margin-top: -10px;
+      font-size: 30px;
+      margin-bottom: 6px;
+      font-family: $sans1med;
+      @include tablet {
+        margin-bottom: 6px;
+      }
+      @include phone {
+        font-size: 26px;
+        margin-bottom: 2px;
+      }
+    }
+
+    &__actions {
+      width: 100%;
+      flex-direction: column;
+
+      &.guessNum {
+        margin-bottom: 8px;
+      }
+
+      .lotto-place-bet {
+        gap: 20px;
+        width: 540px;
+        max-width: 45%;
+        flex-wrap: wrap;
+        flex-direction: row;
+
+        @include ipad {
+          width: 100%;
+          max-width: 100%;
+        }
+        .lotto-input {
+          @extend %base-input;
+          flex: 1;
+          width: max-content;
+          &__icon {
+            aspect-ratio: 1;
+            border-radius: 6px;
+            @extend %row-middle;
+            height: calc(100% - 4px);
+            background: rgba($color: $sub, $alpha: 0.07);
+            svg {
+              width: 17px;
+              height: 17px;
+              stroke: $sub;
+              stroke-width: 1px;
+            }
+          }
+        }
+        .place-bet {
+          @extend %row-middle;
+          height: 42px;
+          font-size: 14px;
+          padding: 0px 20px;
+          border-radius: 8px;
+          white-space: nowrap;
+          background: rgba($color: $sub, $alpha: 0.05);
+          border: 1px solid rgba($color: $sub, $alpha: 0.1);
+        }
+      }
+    }
+
+    &__details {
+      width: 540px;
+      max-width: 45%;
+      flex-direction: column;
+      .bet-details__list-item {
+        font-size: 14px;
+        font-family: $sans1;
+        .indicator {
+          font-size: 12px;
+          padding: 3px 8px 4px;
+        }
+        .key {
+          text-transform: capitalize;
+        }
+      }
+    }
+
+    @include ipad {
+      gap: 0px;
+      flex-direction: column;
+      justify-content: flex-start;
+      &__details {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,117 @@
+@import "../../styles/common/variables";
+@import "../../styles/common/mixin";
+@import "../../styles/common/partials";
+
+.history-page {
+  width: 100vw;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  padding: 24px 76px 40px;
+  overscroll-behavior: none;
+  @include tablet {
+    padding: 24px 30px 40px;
+  }
+  @include phone {
+    padding: 24px 24px 40px;
+  }
+
+  div,
+  button {
+    display: flex;
+  }
+
+  .page-title {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 20px;
+    justify-content: space-between;
+    &-text {
+      font-size: 36px;
+    }
+  }
+
+  &__stats {
+    @extend %row-center-spaced;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding-top: 26px;
+    padding-bottom: 26px;
+    font-family: $sansmed;
+
+    @include phone {
+      gap: 30px;
+      padding-top: 24px;
+      padding-bottom: 10px;
+    }
+  }
+
+  &__stat {
+    white-space: nowrap;
+    flex-direction: column;
+    .row {
+      gap: 6px;
+      align-items: center;
+      flex-direction: row;
+    }
+
+    &:last-child {
+      align-items: center;
+    }
+
+    &:not(.no-fill) {
+      svg {
+        fill: $sub;
+        height: 28px;
+        margin-top: 10px;
+        @include tablet {
+          height: 24px;
+        }
+        @include phone {
+          margin-top: 9px;
+          height: 18px;
+        }
+      }
+    }
+
+    svg {
+      margin-top: 10px;
+      @include tablet {
+        height: 24px;
+      }
+      @include phone {
+        margin-top: 9px;
+      }
+    }
+
+    p {
+      font-size: 16px;
+      color: rgba($color: $sub, $alpha: 0.5);
+      @include phone {
+        font-size: 14px;
+      }
+    }
+    h2 {
+      font-size: 36px;
+      margin-top: 10px;
+      @include tablet {
+        font-size: 30px;
+      }
+      @include phone {
+        font-size: 24px;
+      }
+    }
+
+    @include phone {
+      .row {
+        padding-left: 2px;
+      }
+    }
+
+    @include slScreen {
+      &:nth-child(even) {
+        align-items: flex-end;
+      }
+    }
+  }
+}
